@@ -1,11 +1,12 @@
 FactoryBot.define do
   factory :user do
-    first_name { "MyString" }
-    last_name { "MyString" }
-    id_number { "MyString" }
-    phone_number { "MyString" }
-    pin { "MyString" }
+    first_name { "Jihn" }
+    last_name { "Doe" }
+    id_number { "12345678" }
+    phone_number { "0700000000000" }
+    password { "VerStrong.123" }
+    password_confirmation { "VerStrong.123" }
     balance { 1.5 }
-    password { "MyString" }
+    pin{1452}
   end
 end
