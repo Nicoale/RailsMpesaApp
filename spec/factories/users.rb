@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    first_name { "Jihn" }
+    first_name { "John" }
     last_name { "Doe" }
     id_number { "12345678" }
     phone_number { "0700000000000" }
