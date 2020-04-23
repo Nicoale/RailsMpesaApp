@@ -70,4 +70,45 @@ RSpec.describe User, type: :model do
       user.save
       expect(user.errors.messages[:phone_number]).to eq ["is too long (maximum is 13 characters)"]
     end
+    it "do not allow id number that are less than 7" do
+      user = FactoryBot.build(:user, id_number: "12345")
+      user.save        
+      expect(user.errors.messages[:id_number]).to eq ["is too short (minimum is 7 characters)"]
+  end
+  it "do not allow id number that are greater than 9" do
+    user = FactoryBot.build(:user, id_number: "1234567894")
+    user.save        
+    expect(user.errors.messages[:id_number]).to eq ["is too long (maximum is 9 characters)"]
+  end
+  it "do not allow letters or symbols" do
+    user = FactoryBot.build(:user,id_number: "1234567a"{ with: /\A[a-zA-Z]+\z/})
+    user.save        
+    expect(user.errors.messages[:id_number]).to eq ["is invalid(only letters allowed)"]
+  end
+  it "do not allow duplicate id numbers" do
+    user = FactoryBot.build(:user,id_number: "12345694")
+    user.save        
+    expect(user.errors.messages[:id_number]).to eq ["is invalid(the id number is already registered)"]
+  end
+  it "do not allow password characters that are less than 8" do
+    user = FactoryBot.build(:user, password: "123")
+    user.save        
+    expect(user.errors.messages[:password]).to eq ["is too short (minimum is 8 characters)"]
+  end
+  it "do not allow password characters that are greater than 8" do
+    user = FactoryBot.build(:user, password: "123456789")
+    user.save        
+    expect(user.errors.messages[:password]).to eq ["is too long (maximum is 8 characters)"]
+  end
+  it "do not allow password without special characters" do
+    user = FactoryBot.build(:user, password_confirmation: "123")
+    user.save        
+    expect(user.errors.messages[:password]).to eq ["is too long (maximum is 8 characters)"]
+  end
+  it "do not allow password that do not match" do
+    user = FactoryBot.build(:user, password_confirmation:"")
+    user.save        
+    expect(user.errors.messages[:password_confirmation]).to eq ["is invalid (passwords do not match!)"]
+  end
+
 end
