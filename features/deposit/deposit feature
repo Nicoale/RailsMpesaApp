@@ -1,0 +1,20 @@
+Feature: Deposit Page
+As a User
+I want to deposit amount
+So that I can have an increased total deposit
+
+Scenario: User successfully deposited
+Given I am on the deposit page
+Then I should see "Phone Number"
+And I should see "ID number"
+And I should see "New Deposit"
+And I should see "Enter" button
+When I fill in "Phone Number" with "070000000000" 
+And I fill in "ID Number" with "12345678"
+And I fill in "New Deposit" with "1234"
+And I click Enter
+Then I shoud be redirect to show page
+And I should see "Phone Number: 070000000000"
+And I should see "ID Number: 12345678"
+And I should see "New Deposit: 1234"
+And I should see "Balance: 1234"

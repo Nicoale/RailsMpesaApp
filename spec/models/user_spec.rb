@@ -48,64 +48,64 @@ RSpec.describe User, type: :model do
       expect(user.balance).to eq 0.0 # we assert that the user created has a balance of 0.0 remember default value of balance is 0.0
       expect(user.pin).to eq 1234 # we assert that the pin for user created is 1234
     end
-    it "do not allow existing phone number" do
+    it "does not allow existing phone number" do
       FactoryBot.create(:user) 
       user = FactoryBot.build(:user, phone_number:  "070000000000", id_number: "0000000") # we build a ?# user factory with existing phone number
       user.save 
       expect(user).not_to be_valid 
       expect(user.errors.messages[:phone_number]).to eq ["has already been taken"] 
     end
-    it "do not allow phone number that is not digit" do
+    it "does not allow phone number that is not digit" do
       user = FactoryBot.build(:user, phone_number: "abc12345679") # we build factory for user with non-digit only phone number
       user.save    # save the factory
       expect(user).not_to be_valid # we test that it is not valid
       expect(user.errors.messages[:phone_number]).to eq ["is not a number"] # # we test that error we get from phone number is "["is not a number"]"
-    end it "do not allow phone number that are less than 10" do
+    end it "does not allow phone number that are less than 10" do
       user = FactoryBot.build(:user, phone_number: "12345678")
       user.save        
       expect(user.errors.messages[:phone_number]).to eq ["is too short (minimum is 10 characters)"]
     end
-    it "do not allow phone number that is greater than 13" do
+    it "does not allow phone number that is greater than 13" do
       user = FactoryBot.build(:user, phone_number: "12345678910112221")
       user.save
       expect(user.errors.messages[:phone_number]).to eq ["is too long (maximum is 13 characters)"]
     end
-    it "do not allow id number that are less than 7" do
+    it "does not allow id number that are less than 7" do
       user = FactoryBot.build(:user, id_number: "12345")
       user.save        
       expect(user.errors.messages[:id_number]).to eq ["is too short (minimum is 7 characters)"]
   end
-  it "do not allow id number that are greater than 9" do
+  it "does not allow id number that are greater than 9" do
     user = FactoryBot.build(:user, id_number: "1234567894")
     user.save        
     expect(user.errors.messages[:id_number]).to eq ["is too long (maximum is 9 characters)"]
   end
-  it "do not allow letters or symbols" do
+  it "does not allow letters or symbols" do
     user = FactoryBot.build(:user,id_number: "1234567a"{ with: /\A[a-zA-Z]+\z/})
     user.save        
     expect(user.errors.messages[:id_number]).to eq ["is invalid(only letters allowed)"]
   end
-  it "do not allow duplicate id numbers" do
+  it "does not allow duplicate id numbers" do
     user = FactoryBot.build(:user,id_number: "12345694")
     user.save        
     expect(user.errors.messages[:id_number]).to eq ["is invalid(the id number is already registered)"]
   end
-  it "do not allow password characters that are less than 8" do
+  it "does not allow password characters that are less than 8" do
     user = FactoryBot.build(:user, password: "123")
     user.save        
     expect(user.errors.messages[:password]).to eq ["is too short (minimum is 8 characters)"]
   end
-  it "do not allow password characters that are greater than 8" do
+  it "does not allow password characters that are greater than 8" do
     user = FactoryBot.build(:user, password: "123456789")
     user.save        
     expect(user.errors.messages[:password]).to eq ["is too long (maximum is 8 characters)"]
   end
-  it "do not allow password without special characters" do
+  it "does not allow password without special characters" do
     user = FactoryBot.build(:user, password_confirmation: "123")
     user.save        
     expect(user.errors.messages[:password]).to eq ["is too long (maximum is 8 characters)"]
   end
-  it "do not allow password that do not match" do
+  it "does not allow password that do not match" do
     user = FactoryBot.build(:user, password_confirmation:"")
     user.save        
     expect(user.errors.messages[:password_confirmation]).to eq ["is invalid (passwords do not match!)"]
