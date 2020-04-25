@@ -18,11 +18,12 @@ ActiveRecord::Schema.define(version: 2020_04_21_095122) do
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "id_number"
-    t.string "phone_number"
-    t.string "pin"
+    t.string "id_number", null: false
+    t.string "phone_number", null: false
+    t.integer "pin", default: 1234
     t.float "balance", default: 0.0, null: false
     t.string "password"
+    t.string "password_confirmation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -17,7 +17,7 @@ And I fill in "ID Number" with "12345678"
 And I fill in "Phone Number" with "070000000000"
 And I fill in "Password" with "Stronger*than123Usual"
 And I click Create Account
-Then I shoud be redirect to show page
+Then I should see redirect to show page
 And I should see "First Name: Jane"
 And I should see "Last Name: Doe"
 And I should see "ID Number: 12345678"
