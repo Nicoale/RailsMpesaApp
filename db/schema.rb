@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_205422) do
+ActiveRecord::Schema.define(version: 2020_04_27_032820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2020_04_25_205422) do
     t.float "balance", default: 0.0, null: false
     t.string "password"
     t.string "password_confirmation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "withdrawals", force: :cascade do |t|
+    t.string "phone_number", null: false
+    t.string "agent_number", null: false
+    t.float "amount", null: false
+    t.integer "pin", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post 'users/', to: 'users#create'
   get 'users/:id', to: 'users#show', as: 'user'
   get 'deposit/:phone_number', to: 'deposits#show', as: 'deposits'
+  get 'withdrawal/:phone_number', to: 'withdrawal#show', as: 'withdrawals'
 end

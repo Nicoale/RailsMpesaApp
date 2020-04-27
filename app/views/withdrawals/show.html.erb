@@ -1,0 +1,20 @@
+<p>
+  <strong>Phone Number:</strong>
+  <%= @withdrawal.phone_number %>
+</p>
+<p>
+  <strong> Amount:</strong>
+  <%= @withdrawal.amount %>
+</p>
+
+<p>
+  <strong>Agent Number:</strong>
+  <%= @withdrawal.agent_number %>
+</p>
+
+<p>
+  <strong>Pin:</strong>
+  <%= @withdrawal.pin %>
+</p>
+
+link_to("Go to withdrawals",{:controller=>'withdrawals',:action =>'withdrawals'})
