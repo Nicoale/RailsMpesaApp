@@ -1,0 +1,20 @@
+<p>
+  <strong>Phone Number:</strong>
+  <%= @deposit.phone_number %>
+</p>
+<p>
+  <strong> New Deposit:</strong>
+  <%= @deposit.new_deposit %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @deposit.balance %>
+</p>
+
+<p>
+  <strong>Pin:</strong>
+  <%= @deposit.pin %>
+</p>
+
+link_to("Go to deposits",{:controller=>'users',:action =>'deposits'})

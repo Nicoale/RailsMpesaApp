@@ -1,0 +1,21 @@
+  <%= form_with scope: :user, url: new_user_path, local: true do |form| %>
+  <p>
+    <%= form.label :phone_number %><br>
+    <%= form.text_field :phone_number %>
+  </p>
+  <p>
+    <%= form.label :new_deposit %><br>
+    <%= form.text_field :new_deposit%>
+  </p>
+  <p>
+    <%= form.label :balance %><br>
+    <%= form.text_field :balance%>
+  </p>
+  <p>
+    <%= form.label :pin %><br>
+    <%= form.text_field :pin %>
+  </p>
+ 
+    <%= form.submit "Create deposit" %>
+  </p>
+<% end %>
