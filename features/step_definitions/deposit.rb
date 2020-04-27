@@ -14,5 +14,5 @@ Given("I am on the deposit page") do
   Then("I should see redirect to show page") do
     deposit = User.find_by(phone_number: '012345678')
     phone_number= user.phone_number
-    visit "/deposits/#{phone_number}"
+    visit "/deposit/#{phone_number}"
   end
