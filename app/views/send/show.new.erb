@@ -1,0 +1,25 @@
+<p>
+  <strong>Senders Phone Number:</strong>
+  <%= @send.senders_phone_number %>
+</p>
+<p>
+  <strong>Receivers Phone Number:</strong>
+  <%= @send.receivers_phone_number %>
+</p>
+<p>
+<p>
+  <strong> Amount:</strong>
+  <%= @send.amount %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @send.balance %>
+</p>
+
+<p>
+  <strong>Pin:</strong>
+  <%= @send.pin %>
+</p>
+
+link_to("Go to send",{:controller=>'send',:action =>'send'})
