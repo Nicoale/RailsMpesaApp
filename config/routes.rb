@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get 'deposit/:phone_number', to: 'deposits#show', as: 'deposits'
   get 'withdrawal/:phone_number', to: 'withdrawal#show', as: 'withdrawals'
   get 'send/:phone_number', to: 'send#show', as: 'sends'
+  get 'login', to:'sessions#new', as:'login'
+  post '/login', 'sessions#create'
   root to:'statistics#home'
 end
