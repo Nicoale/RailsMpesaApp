@@ -7,5 +7,5 @@ class User < ApplicationRecord
     validates :password, presence: true, format: {with: PASSWORD_REGEX, message: "too weak"}, confirmation: true
     validates :pin, numericality: {only_integer: true}, presence: true,length:{is: 4 }
     validates :password_confirmation,  presence: true
-
+    has_secure_password
 end  

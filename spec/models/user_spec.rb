@@ -23,9 +23,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:phone_number)}  
     it { is_expected.to validate_length_of(:phone_number)}
     it { is_expected.to validate_numericality_of(:phone_number)}
-    it { is_expected.to validate_presence_of(:password)}
+    it { is_expected.to validate_presence_of(:password_digest)}
     it { is_expected.to validate_length_of(:password)}
     it { is_expected.to validate_confirmation_of(:password)}
+    it { is_expected.to have_secure_password}
     it { is_expected.to validate_presence_of(:pin)}
     it { is_expected.to validate_length_of(:pin)}
     it { is_expected.to validate_numericality_of(:pin)}
@@ -33,6 +34,7 @@ RSpec.describe User, type: :model do
       subject{User.create(first_name: "nikki", last_name:"memphis",id_number:"45678925", phone_number:"0123456789",password:"123987654")}
     it { is_expected.to validate_uniqueness_of(:phone_number).case_insensitive}
     it { is_expected.to validate_uniqueness_of(:id_number).case_insensitive}
+  
   end 
   describe "#creating user" do
     it 'creates user with valid attributes' do
