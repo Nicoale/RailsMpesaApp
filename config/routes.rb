@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'send/:phone_number', to: 'send#show', as: 'sends'
   get 'login', to:'sessions#new', as:'login'
   post '/login', 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
   root to:'statistics#home'
 end
