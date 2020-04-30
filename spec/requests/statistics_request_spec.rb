@@ -1,12 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe "Statistics", type: :request do
-
-  describe "GET /home" do
-    it "returns http success" do
-      get "/statistics/home"
+RSpec.describe 'Statistics', type: :request do
+  describe 'GET /home' do
+    it 'returns http success' do
+      get '/statistics/home'
       expect(response).to have_http_status(:success)
     end
   end
-
 end
