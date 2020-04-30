@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   get 'sessionz/new', as: 'login'
    root to:'statistics#home'
   # # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  # get 'users/new', to: 'users#new', as: 'new_user'
-  # post 'users/', to: 'users#create'
-  # get 'users/:id', to: 'users#show', as: 'user'
+   get 'users/new', to: 'users#new', as: 'new_user'
+   post 'users/', to: 'users#create'
+   get 'users/:id', to: 'users#show', as: 'user'
   # get 'users/login', to: redirect('/auth/google_oauth2'), as: 'login'
 
   # # get 'login', to:'sessions#new', as:'login'
