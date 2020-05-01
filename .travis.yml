@@ -1,4 +1,7 @@
 language: ruby
+# services: postgresql
+before_script: 
+  -bundle
 script:
   - rails db:migrate RAILS_ENV=test
   - bundle exec cucumber
