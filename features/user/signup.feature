@@ -1,7 +1,7 @@
 Feature: User Sign Up
 As a User
 I want  so sign up
-So that can have an account
+So that i can have an account
 
 Scenario: User successfully signup
 Given I am on the signup page
@@ -15,7 +15,7 @@ When I fill in "First Name" with "Jane"
 And I fill in "Last Name" with "Doe"
 And I fill in "ID Number" with "12345678"
 And I fill in "Phone Number" with "070000000000"
-And I fill in "Password" with "Stronger*than123Usual"
+And I fill in "Password" with "StrongerthanUsual"
 And I click Create Account
 Then I should see redirect to show page
 And I should see "First Name: Jane"
