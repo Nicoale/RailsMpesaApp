@@ -1,3 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#form-style {
+        display: flex;
+        justify-content: center;
+        height: 110vh;
+        background-color: rgb(243, 55, 243);
+        font-family: monospace;
+.form-table {
+        padding-top: 30vh;
+    }
+} 
