@@ -1,0 +1,1 @@
+Rails,application.config.sessions_store :cookie_store, key: "_mpesa_app", domain: "mpesa_app.herokuapp.com"
